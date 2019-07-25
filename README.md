@@ -12,6 +12,9 @@ git clone https://github.com/yvv4git/yii2basic
 ./permissions.sh
 ./start.sh
 
+4. IDE
+ln -s /var/www/dy2/ /home/yvv/PhpstormProjects/yii2d/
+Это необходимо, чтобы в ide-шке можно было редактировать файлы.
 
-4. Stop.
+5. Stop.
 ./stop.sh

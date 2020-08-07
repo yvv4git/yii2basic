@@ -1,18 +1,11 @@
 # Yii2 basic with xdebug and selenium
 
-1. Создаем дирикторию для проекта.
-
-mkdir -p /var/www/dy2
-
-
-2. Клонируем репозиторий.
-
-cd /var/www/dy2
+1. Клонируем репозиторий.
 
 git clone https://github.com/yvv4git/yii2basic
 
 
-3. Docker.
+2. Docker.
 
 ./build.sh
 
@@ -21,12 +14,10 @@ git clone https://github.com/yvv4git/yii2basic
 ./start.sh
 
 
-4. IDE
-
-ln -s /var/www/dy2/ /home/yvv/PhpstormProjects/yii2d/
+3. IDE
 
 Это необходимо, чтобы в ide-шке можно было редактировать файлы.
 
-5. Stop.
+4. Stop.
 
 ./stop.sh

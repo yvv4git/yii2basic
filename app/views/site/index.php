@@ -2,7 +2,7 @@
 
 /* @var $this yii\web\View */
 
-$this->title = 'My Yii Application!YVV';
+$this->title = 'Мое приложение';
 
 $a = 1;
 ?>

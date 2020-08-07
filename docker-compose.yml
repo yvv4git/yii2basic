@@ -43,7 +43,7 @@ services:
       ports:
        - "8080:80"
       expose:
-       - "9001"
+       - "9009"
       depends_on:
         - y2phpfpm
       #links:

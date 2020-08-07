@@ -4,19 +4,22 @@
 
 $this->title = 'Мое приложение';
 
-$a = 1;
 ?>
 <div class="site-index">
 
     <div class="jumbotron">
         <h1>Приветствую!!!</h1>
 
-        <p class="lead">You have successfully created your Yii-powered application.</p>
-
-        <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
+        <p class="lead">Разные пример работы с yii2</p>
     </div>
 
-    <div class="body-content">
+
+    <div class="list-group">
+        <a href="/forms" class="list-group-item list-group-item-action">Формы</a>
+        <a href="#" class="list-group-item list-group-item-action">БД</a>
+    </div>
+
+<!--    <div class="body-content">
 
         <div class="row">
             <div class="col-lg-4">
@@ -51,5 +54,5 @@ $a = 1;
             </div>
         </div>
 
-    </div>
+    </div>-->
 </div>

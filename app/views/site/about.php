@@ -13,6 +13,11 @@ $this->params['breadcrumbs'][] = $this->title;
     <p>
         Какая то информация о странице.
     </p>
+    <div>
+        <?php
+            var_dump($_SERVER);
+        ?>
+    </div>
 
     <code><?= __FILE__ ?></code>
 </div>

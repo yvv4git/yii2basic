@@ -1,55 +1,60 @@
-version: "2"
+version: "3.7"
 
 services:
     y2redis:
-      image: phpdockerio/redis:latest
-      container_name: y2redis
-      networks:
-        - backend
+        build: ./redis
+        container_name: y2redis
+        hostname: y2redis
+        restart: always
+        ports:
+          - 6379:6379
+        networks:
+          - backend
 
     y2mysql:
-      image: mysql:5.7
-      container_name: y2mysql
-      environment:
-        - MYSQL_ROOT_PASSWORD=superpassword
-        - MYSQL_DATABASE=dbyvv
-        - MYSQL_USER=vladimir
-        - MYSQL_PASSWORD=superpwd
-      volumes:
-        - ./mysql/data:/var/lib/mysql
-      networks:
-        - backend
+        build: ./mysql
+        privileged: true
+        hostname: y2mysql
+        container_name: mysql
+        image: mysql_dev
+        ports:
+            - "3306:3306"
+        networks:
+          - backend
 
     y2phpfpm:
-      build: ./php-fpm
-      #dockerfile: php-fpm/Dockerfile
-      container_name: y2phpfpm
-      volumes:
-        - ./app:/var/www/dy2:rw
-        - ./php-fpm/php-ini-overrides.ini:/etc/php/7.1/fpm/conf.d/99-overrides.ini
-        - ./php-fpm/xdebug.ini:/etc/php/7.1/mods-available/xdebug.ini
-      #links:
-      #  - dy2-mysql
-      #  - dy2-redis
-      networks:
-        - backend
+        build: ./php-fpm
+        #dockerfile: php-fpm/Dockerfile
+        container_name: y2phpfpm
+        hostname: y2phpfpm
+        restart: always
+        volumes:
+          - ./app:/var/www/dy2:rw
+          - ./php-fpm/php-ini-overrides.ini:/etc/php/7.1/fpm/conf.d/99-overrides.ini
+          - ./php-fpm/xdebug.ini:/etc/php/7.1/mods-available/xdebug.ini
+        #links:
+        #  - dy2-mysql
+        #  - dy2-redis
+        networks:
+          - backend
 
     y2nginx:
-      image: phpdockerio/nginx:latest
-      container_name: y2nginx
-      volumes:
-          - ./app:/var/www/dy2:rw
-          - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
-      ports:
-       - "8080:80"
-      expose:
-       - "9009"
-      depends_on:
-        - y2phpfpm
-      #links:
-      # - dy2-php-fpm
-      networks:
-        - backend
+        build: ./nginx
+        container_name: y2nginx
+        hostname: y2nginx
+        volumes:
+            - ./app:/var/www/dy2:rw
+            - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+        ports:
+        - "8080:80"
+        expose:
+        - "9009"
+        depends_on:
+          - y2phpfpm
+        #links:
+        # - dy2-php-fpm
+        networks:
+          - backend
         
     chrome:
         container_name: chrome

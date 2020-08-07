@@ -1,10 +1,11 @@
-FROM phpdockerio/php71-fpm:latest
+FROM php:7.4-fpm
 
 # Install selected extensions and other stuff
-RUN apt-get update \
-    && apt-get -y --no-install-recommends install  php7.1-mysql php-redis php7.1-sqlite3 php7.1-bcmath php7.1-bz2 php7.1-gd php7.1-imap php-imagick php7.1-mbstring php-yaml php-xdebug \
-#    && apt-get -y install netcat \
-    && apt-get clean; rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*
-
+RUN apt-get update && apt-get install -y \
+        libfreetype6-dev \
+        libjpeg62-turbo-dev \
+        libpng-dev \
+    && docker-php-ext-configure gd --with-freetype --with-jpeg \
+    && docker-php-ext-install -j$(nproc) gd
 
 WORKDIR "/var/www/dy2"

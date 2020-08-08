@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
     yii2redis:
-        build: ./redis
+        build: ./docker/redis
         container_name: yii2redis
         hostname: redis
         restart: always
@@ -12,7 +12,7 @@ services:
           - backend
 
     yii2mysql:
-        build: ./mysql
+        build: ./docker/mysql
         privileged: true
         container_name: yii2mysql
         hostname: mysql
@@ -23,15 +23,15 @@ services:
           - backend
 
     yii2phpfpm:
-        build: ./php-fpm
+        build: ./docker/php-fpm
         #dockerfile: php-fpm/Dockerfile
         container_name: yii2phpfpm
         hostname: phpfpm
         restart: always
         volumes:
           - ./app:/var/www/dy2:rw
-          - ./php-fpm/php-ini-overrides.ini:/etc/php/7.1/fpm/conf.d/99-overrides.ini
-          - ./php-fpm/xdebug.ini:/etc/php/7.1/mods-available/xdebug.ini
+          - ./docker/php-fpm/php-ini-overrides.ini:/etc/php/7.1/fpm/conf.d/99-overrides.ini
+          - ./docker/php-fpm/xdebug.ini:/etc/php/7.1/mods-available/xdebug.ini
         #links:
         #  - dy2-mysql
         #  - dy2-redis
@@ -39,12 +39,12 @@ services:
           - backend
 
     yii2nginx:
-        build: ./nginx
+        build: ./docker/nginx
         container_name: yii2nginx
         hostname: nginx
         volumes:
             - ./app:/var/www/dy2:rw
-            - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+            - ./docker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
         ports:
         - "8080:80"
         expose:

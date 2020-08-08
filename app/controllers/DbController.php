@@ -2,16 +2,15 @@
 
 namespace app\controllers;
 
-use app\models\SimpleForm;
-use Yii;
+use app\models\Employers;
+//use Yii;
 use yii\web\Controller;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
-//use yii\web\Response;
 
-class FormsController extends Controller
+class DbController extends Controller
 {
-    /**
+        /**
      * @inheritDoc
      */
     public function behaviors()
@@ -51,15 +50,8 @@ class FormsController extends Controller
 
     public function actionIndex()
     {
-        $model = new SimpleForm();
-
-        if (
-            $model->load(Yii::$app->request->post())
-            && $model->validate()
-        ) {
-            return $this->render('success', ['model' => $model]);
-        }
-
-        return $this->render('index', ['model' => $model]);
+        $employers = Employers::find()->orderBy(['id' => SORT_ASC])->all();
+        return $this->render('index', ['model' => $employers]);
     }
+
 }

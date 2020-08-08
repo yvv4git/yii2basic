@@ -16,7 +16,7 @@ $this->title = 'Мое приложение';
 
     <div class="list-group">
         <a href="/forms" class="list-group-item list-group-item-action">Формы</a>
-        <a href="#" class="list-group-item list-group-item-action">БД</a>
+        <a href="/db" class="list-group-item list-group-item-action">БД</a>
     </div>
 
 <!--    <div class="body-content">

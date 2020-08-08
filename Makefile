@@ -8,7 +8,7 @@ restart:
 	docker-compose restart
 	
 rebuild:
-	docker-compose up -d --no-deps --build
+	docker-compose up -d --no-deps --force-recreate --build
 
 clear:
 	docker-compose stop

@@ -3,7 +3,6 @@
 ## 1. Клонируем репозиторий.
 * git clone https://github.com/yvv4git/yii2basic
 
-
 ## 2. Docker.
 Запуск и остановка контейнеров:
 * make start

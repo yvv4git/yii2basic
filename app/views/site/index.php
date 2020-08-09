@@ -15,8 +15,8 @@ $this->title = 'Мое приложение';
 
 
     <div class="list-group">
-        <a href="/forms" class="list-group-item list-group-item-action">Forms. Simple post</a>
-        <a href="/db" class="list-group-item list-group-item-action">Data base. Get model</a>
-        <a href="/db" class="list-group-item list-group-item-action">Data base. Widget ListView</a>
+        <a href="/forms" class="list-group-item list-group-item-action">Forms. Simple post.</a>
+        <a href="/db" class="list-group-item list-group-item-action">Data base. Get model.</a>
+        <a href="/db" class="list-group-item list-group-item-action">Data base. Widget ListView.</a>
     </div>
 </div>

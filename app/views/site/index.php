@@ -17,6 +17,6 @@ $this->title = 'Мое приложение';
     <div class="list-group">
         <a href="/forms" class="list-group-item list-group-item-action">Формы</a>
         <a href="/db" class="list-group-item list-group-item-action">БД SELECT</a>
-        <a href="/db" class="list-group-item list-group-item-action">БД && widget List view</a>
+        <a href="/db" class="list-group-item list-group-item-action">БД && widget ListView</a>
     </div>
 </div>

@@ -8,9 +8,7 @@ $this->title = 'Мое приложение';
 <div class="site-index">
 
     <div class="jumbotron">
-        <h1>Приветствую!!!</h1>
-
-        <p class="lead">Разные пример работы с yii2</p>
+        <h1>Yii2 howto</h1>
     </div>
 
 

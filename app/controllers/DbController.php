@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use app\models\Employers;
+use yii\data\ActiveDataProvider;
 //use Yii;
 use yii\web\Controller;
 use yii\filters\AccessControl;
@@ -51,7 +52,19 @@ class DbController extends Controller
     public function actionIndex()
     {
         $employers = Employers::find()->orderBy(['id' => SORT_ASC])->all();
-        return $this->render('index', ['model' => $employers]);
+        return $this->render('index', ['employers' => $employers]);
+    }
+
+    public function actionList()
+    {
+        $dataProvider = new ActiveDataProvider([
+            'query' => Employers::find()->orderBy(['id' => SORT_ASC]),
+            'pagination' => [
+                'pageSize' => 10,
+            ],
+        ]);
+
+        return $this->render('list', ['dataProvider' => $dataProvider]);
     }
 
 }

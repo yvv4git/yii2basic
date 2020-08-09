@@ -8,7 +8,7 @@
 
 <p>
     <?php foreach($employers as $employer): ?>
-        <?= $employer->first_name ?> &nbsp; <?= $employer->last_name ?> &nbsp; <?= $employer->email ?>
+        <?= $employer->first_name ?> &nbsp; <?= $employer->second_name ?> &nbsp; <?= $employer->email ?> <br>
     <?php endforeach; ?>
 </p>
 

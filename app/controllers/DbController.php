@@ -3,8 +3,9 @@
 namespace app\controllers;
 
 use app\models\Employers;
+use app\models\EmployersSaveForm;
+use Yii;
 use yii\data\ActiveDataProvider;
-//use Yii;
 use yii\web\Controller;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
@@ -65,6 +66,21 @@ class DbController extends Controller
         ]);
 
         return $this->render('list', ['dataProvider' => $dataProvider]);
+    }
+
+    public function actionEmployersform()
+    {
+        $model = new EmployersSaveForm();
+
+        if (
+            $model->load(Yii::$app->request->post())
+            && $model->validate()
+        ) {
+            $model->save();
+            return $this->render('success', ['model' => $model]);
+        } 
+
+        return $this->render('formSaveEmployers', ['model' => $model]);
     }
 
 }

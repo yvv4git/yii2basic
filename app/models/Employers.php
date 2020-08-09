@@ -1,4 +1,10 @@
 <?php
+/**
+ * @property string $first_name
+ * @property string $second_name
+ * @property string $middle_name
+ * @property string $email_name
+ */
 
 namespace app\models;
 
